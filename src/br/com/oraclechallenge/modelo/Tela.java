@@ -22,56 +22,59 @@ public class Tela {
     public void telaValor(String moedas) {
          try {
                 double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-         }  catch (NumberFormatException e) {
+                 switch(moedas){
+                    case "Reais para Dólares":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realDolar(valor));
+                        Continuar();
+                    break;
+
+                    case "Reais para Euros":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realEuro(valor));
+                    break;
+
+                    case "Reais para Libras":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realLibras(valor));
+                    break;
+
+                    case "Reais para Yenes":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realYenes(valor));
+                    break;
+
+                    case "Reais para Won Coreano":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realWon(valor));
+                    break;
+
+                    case "Dólares para Reais":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de US$ " + ConversorDeMoeda.dolarReal(valor));
+                    break;
+
+                    case "Euros para Reais":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.euroReal(valor));
+                    break;
+
+                    case "Libras para Reais":
+                        JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.librasReal(valor));
+                    break;
+                } 
+            }  catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Digite caracteres númericos");
-                telaMoedas();
-            }
-
-         switch(moedas){
-            case "Reais para Dólares":
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realDolar(valor));
-            break;
-
-            case "Reais para Euros":
-                double euros = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realEuro(euros));
-            break;
-
-            case "Reais para Libras":
-                double libras = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realLibras(libras));
-            break;
-
-            case "Reais para Yenes":
-                double yenes = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realYenes(yenes));
-            break;
-
-            case "Reais para Won Coreano":
-                double won = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realWon(won));
-            break;
-
-            case "Dólares para Reais":
-                double reaisDolar = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de US$ " + ConversorDeMoeda.dolarReal(reaisDolar));
-            break;
-
-            case "Euros para Reais":
-                double reaisEuros = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.euroReal(reaisEuros));
-            break;
-
-             case "Libras para Reais":
-                double reaisLibras = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-                JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.librasReal(reaisLibras));
-            break;
-        } 
-        
+                telaValor(moedas);
+        }
     }
 
     // public class telaResultado() {
     //     JOptionPane.show
     // }
-    
+
+    public void Continuar() {
+        int escolha = JOptionPane.showConfirmDialog(null, "Deseja continuar?", "Opções", 1, 
+                            JOptionPane.YES_NO_CANCEL_OPTION, null);
+            if(escolha != 1 && escolha != 2) {
+                telaMenu();
+            }   else if (escolha == 1) {
+                    JOptionPane.showMessageDialog(null, "Programa Finalizado");
+            } else {
+                  JOptionPane.showMessageDialog(null, "Programa Concluido");
+            }
+    }
 }
