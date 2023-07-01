@@ -1,4 +1,4 @@
-package teste;
+package br.com.oraclechallenge.teste;
 
 import br.com.oraclechallenge.modelo.Tela;
 

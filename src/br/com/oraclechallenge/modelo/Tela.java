@@ -9,17 +9,64 @@ public class Tela {
 
     public void telaMenu() {
          Object menu = JOptionPane.showInputDialog(null, "Escolha uma opção" , 
-                "Menu", JOptionPane.PLAIN_MESSAGE , null ,opcoesMenu,"");
-        if(menu == opcoesMenu[0]){
-            telaMoedas();
-        }
+                "Menu", JOptionPane.PLAIN_MESSAGE , null ,opcoesMenu,""); 
+        if(menu == opcoesMenu[0]) telaMoedas();
+        
     } 
  
     public void telaMoedas() {
-        Object moedas = JOptionPane.showInputDialog(null, "Escolha uma opção" , "Moedas",
-		    JOptionPane.PLAIN_MESSAGE , null ,opcoesMoedas,"");
-            if (moedas == opcoesMoedas[0]) {
-                JOptionPane.showMessageDialog(null, "Deu certo");
-            }
+        String moedas =(String) JOptionPane.showInputDialog(null, "Escolha uma opção" , "Moedas",
+		    JOptionPane.PLAIN_MESSAGE , null ,opcoesMoedas,"");    
+        switch(moedas){
+            case "Reais para Dólares":
+                double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realDolar(valor));
+            break;
+
+            case "Reais para Euros":
+                double euros = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realEuro(euros));
+            break;
+
+            case "Reais para Libras":
+                double libras = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realLibras(libras));
+            break;
+
+            case "Reais para Yenes":
+                double yenes = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realYenes(yenes));
+            break;
+
+            case "Reais para Won Coreano":
+                double won = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realWon(won));
+            break;
+
+            case "Dólares para Reais":
+                double reaisDolar = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de US$ " + ConversorDeMoeda.dolarReal(reaisDolar));
+            break;
+
+            case "Euros para Reais":
+                double reaisEuros = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.euroReal(reaisEuros));
+            break;
+
+             case "Libras para Reais":
+                double reaisLibras = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+                JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.librasReal(reaisLibras));
+            break;
+        }
     }
+
+
+    // public void telaValor() {
+    //     double dolar = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+    // }
+
+    // public class telaResultado() {
+    //     JOptionPane.show
+    // }
+    
 }
