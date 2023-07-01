@@ -10,16 +10,25 @@ public class Tela {
     public void telaMenu() {
          Object menu = JOptionPane.showInputDialog(null, "Escolha uma opção" , 
                 "Menu", JOptionPane.PLAIN_MESSAGE , null ,opcoesMenu,""); 
-        if(menu == opcoesMenu[0]) telaMoedas();
-        
+        if(menu == opcoesMenu[0]) telaMoedas();   
     } 
  
     public void telaMoedas() {
         String moedas =(String) JOptionPane.showInputDialog(null, "Escolha uma opção" , "Moedas",
-		    JOptionPane.PLAIN_MESSAGE , null ,opcoesMoedas,"");    
-        switch(moedas){
-            case "Reais para Dólares":
+		    JOptionPane.PLAIN_MESSAGE , null ,opcoesMoedas,"");   
+            telaValor(moedas);
+    }
+
+    public void telaValor(String moedas) {
+         try {
                 double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
+         }  catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Digite caracteres númericos");
+                telaMoedas();
+            }
+
+         switch(moedas){
+            case "Reais para Dólares":
                 JOptionPane.showMessageDialog(null, "O valor da conversão é de R$ " + ConversorDeMoeda.realDolar(valor));
             break;
 
@@ -57,13 +66,9 @@ public class Tela {
                 double reaisLibras = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
                 JOptionPane.showMessageDialog(null, "O valor da conversão é de e " + ConversorDeMoeda.librasReal(reaisLibras));
             break;
-        }
+        } 
+        
     }
-
-
-    // public void telaValor() {
-    //     double dolar = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o valor"));
-    // }
 
     // public class telaResultado() {
     //     JOptionPane.show
